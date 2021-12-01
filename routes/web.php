@@ -23,3 +23,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/mollie', [App\Http\Controllers\MollieController::class, 'preparePayment'])->name('mollie.payment');
 Route::get('payment-success',[App\Http\Controllers\MollieController::class, 'paymentSuccess'])->name('payment.success');
+Route::name('webhooks.mollie')->post('webhooks/mollie', 'MollieWebhookController@handle');

@@ -24,14 +24,14 @@ class MollieController extends Controller
             ],
             "description" => "Order #12345",
             "redirectUrl" => route('payment.success'),
-            // "webhookUrl" => route('webhooks.mollie'),
+            "webhookUrl" => route('webhooks.mollie'),
             "metadata" => [
                 "order_id" => "12345",
             ],
         ]);
 
         
-        $payment = Mollie::api()->payments->get($payment->id);
+        // $payment = Mollie::api()->payments->get($payment->id);
 
         // redirect customer to Mollie checkout page
         return redirect($payment->getCheckoutUrl(), 303);
